@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Raw dataset files (large, not needed in repo)
+ml/data/raw/
+Dataset on irrigation for Tomato/
+IoT-based Dataset of a Tomato Cultivation Under Different Irrigation Regimes/

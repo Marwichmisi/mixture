@@ -1,0 +1,430 @@
+{
+  "B": {
+    "smote": {
+      "accuracy": 0.7445652173913043,
+      "precision_weighted": 0.8836403299217944,
+      "recall_weighted": 0.7445652173913043,
+      "f1_weighted": 0.7995090676817638,
+      "confusion_matrix": [
+        [
+          126,
+          29,
+          7
+        ],
+        [
+          4,
+          3,
+          4
+        ],
+        [
+          0,
+          3,
+          8
+        ]
+      ],
+      "per_class": {
+        "No watering": {
+          "precision": 0.9692307692307692,
+          "recall": 0.7777777777777778,
+          "f1": 0.863013698630137,
+          "support": 162
+        },
+        "Short watering": {
+          "precision": 0.08571428571428572,
+          "recall": 0.2727272727272727,
+          "f1": 0.13043478260869565,
+          "support": 11
+        },
+        "Long watering": {
+          "precision": 0.42105263157894735,
+          "recall": 0.7272727272727273,
+          "f1": 0.5333333333333333,
+          "support": 11
+        }
+      },
+      "pred_dist": [
+        130,
+        35,
+        19
+      ],
+      "true_dist": [
+        162,
+        11,
+        11
+      ]
+    },
+    "smote_tomek": {
+      "accuracy": 0.657608695652174,
+      "precision_weighted": 0.8296759919220718,
+      "recall_weighted": 0.657608695652174,
+      "f1_weighted": 0.7186160440906307,
+      "confusion_matrix": [
+        [
+          114,
+          46,
+          2
+        ],
+        [
+          4,
+          7,
+          0
+        ],
+        [
+          4,
+          7,
+          0
+        ]
+      ],
+      "per_class": {
+        "No watering": {
+          "precision": 0.9344262295081968,
+          "recall": 0.7037037037037037,
+          "f1": 0.8028169014084507,
+          "support": 162
+        },
+        "Short watering": {
+          "precision": 0.11666666666666667,
+          "recall": 0.6363636363636364,
+          "f1": 0.19718309859154928,
+          "support": 11
+        },
+        "Long watering": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 11
+        }
+      },
+      "pred_dist": [
+        122,
+        60,
+        2
+      ],
+      "true_dist": [
+        162,
+        11,
+        11
+      ]
+    },
+    "ensemble": {
+      "accuracy": 0.8804347826086957,
+      "precision_weighted": 0.7751654064272211,
+      "recall_weighted": 0.8804347826086957,
+      "f1_weighted": 0.8244533802462931,
+      "confusion_matrix": [
+        [
+          162,
+          0,
+          0
+        ],
+        [
+          11,
+          0,
+          0
+        ],
+        [
+          11,
+          0,
+          0
+        ]
+      ],
+      "per_class": {
+        "No watering": {
+          "precision": 0.8804347826086957,
+          "recall": 1.0,
+          "f1": 0.9364161849710982,
+          "support": 162
+        },
+        "Short watering": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 11
+        },
+        "Long watering": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 11
+        }
+      },
+      "pred_dist": [
+        184,
+        0,
+        0
+      ],
+      "true_dist": [
+        162,
+        11,
+        11
+      ]
+    },
+    "focal_loss": {
+      "accuracy": 0.8478260869565217,
+      "precision_weighted": 0.8015534236930119,
+      "recall_weighted": 0.8478260869565217,
+      "f1_weighted": 0.823993830787309,
+      "confusion_matrix": [
+        [
+          153,
+          9,
+          0
+        ],
+        [
+          8,
+          3,
+          0
+        ],
+        [
+          10,
+          1,
+          0
+        ]
+      ],
+      "per_class": {
+        "No watering": {
+          "precision": 0.8947368421052632,
+          "recall": 0.9444444444444444,
+          "f1": 0.918918918918919,
+          "support": 162
+        },
+        "Short watering": {
+          "precision": 0.23076923076923078,
+          "recall": 0.2727272727272727,
+          "f1": 0.25,
+          "support": 11
+        },
+        "Long watering": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 11
+        }
+      },
+      "pred_dist": [
+        171,
+        13,
+        0
+      ],
+      "true_dist": [
+        162,
+        11,
+        11
+      ]
+    }
+  },
+  "A": {
+    "smote": {
+      "accuracy": 0.7228260869565217,
+      "precision_weighted": 0.8790207039337474,
+      "recall_weighted": 0.7228260869565217,
+      "f1_weighted": 0.7801136850147871,
+      "confusion_matrix": [
+        [
+          121,
+          29,
+          12
+        ],
+        [
+          3,
+          4,
+          4
+        ],
+        [
+          1,
+          2,
+          8
+        ]
+      ],
+      "per_class": {
+        "No watering": {
+          "precision": 0.968,
+          "recall": 0.7469135802469136,
+          "f1": 0.8432055749128919,
+          "support": 162
+        },
+        "Short watering": {
+          "precision": 0.11428571428571428,
+          "recall": 0.36363636363636365,
+          "f1": 0.17391304347826086,
+          "support": 11
+        },
+        "Long watering": {
+          "precision": 0.3333333333333333,
+          "recall": 0.7272727272727273,
+          "f1": 0.45714285714285713,
+          "support": 11
+        }
+      },
+      "pred_dist": [
+        125,
+        35,
+        24
+      ],
+      "true_dist": [
+        162,
+        11,
+        11
+      ]
+    },
+    "smote_tomek": {
+      "accuracy": 0.7391304347826086,
+      "precision_weighted": 0.8799145299145299,
+      "recall_weighted": 0.7391304347826086,
+      "f1_weighted": 0.7947406725083976,
+      "confusion_matrix": [
+        [
+          126,
+          28,
+          8
+        ],
+        [
+          3,
+          4,
+          4
+        ],
+        [
+          1,
+          4,
+          6
+        ]
+      ],
+      "per_class": {
+        "No watering": {
+          "precision": 0.9692307692307692,
+          "recall": 0.7777777777777778,
+          "f1": 0.863013698630137,
+          "support": 162
+        },
+        "Short watering": {
+          "precision": 0.1111111111111111,
+          "recall": 0.36363636363636365,
+          "f1": 0.1702127659574468,
+          "support": 11
+        },
+        "Long watering": {
+          "precision": 0.3333333333333333,
+          "recall": 0.5454545454545454,
+          "f1": 0.41379310344827586,
+          "support": 11
+        }
+      },
+      "pred_dist": [
+        130,
+        36,
+        18
+      ],
+      "true_dist": [
+        162,
+        11,
+        11
+      ]
+    },
+    "ensemble": {
+      "accuracy": 0.8804347826086957,
+      "precision_weighted": 0.7751654064272211,
+      "recall_weighted": 0.8804347826086957,
+      "f1_weighted": 0.8244533802462931,
+      "confusion_matrix": [
+        [
+          162,
+          0,
+          0
+        ],
+        [
+          11,
+          0,
+          0
+        ],
+        [
+          11,
+          0,
+          0
+        ]
+      ],
+      "per_class": {
+        "No watering": {
+          "precision": 0.8804347826086957,
+          "recall": 1.0,
+          "f1": 0.9364161849710982,
+          "support": 162
+        },
+        "Short watering": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 11
+        },
+        "Long watering": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 11
+        }
+      },
+      "pred_dist": [
+        184,
+        0,
+        0
+      ],
+      "true_dist": [
+        162,
+        11,
+        11
+      ]
+    },
+    "focal_loss": {
+      "accuracy": 0.6956521739130435,
+      "precision_weighted": 0.8994979072963518,
+      "recall_weighted": 0.6956521739130435,
+      "f1_weighted": 0.7657446249243027,
+      "confusion_matrix": [
+        [
+          115,
+          36,
+          11
+        ],
+        [
+          1,
+          7,
+          3
+        ],
+        [
+          0,
+          5,
+          6
+        ]
+      ],
+      "per_class": {
+        "No watering": {
+          "precision": 0.9913793103448276,
+          "recall": 0.7098765432098766,
+          "f1": 0.8273381294964028,
+          "support": 162
+        },
+        "Short watering": {
+          "precision": 0.14583333333333334,
+          "recall": 0.6363636363636364,
+          "f1": 0.23728813559322035,
+          "support": 11
+        },
+        "Long watering": {
+          "precision": 0.3,
+          "recall": 0.5454545454545454,
+          "f1": 0.3870967741935484,
+          "support": 11
+        }
+      },
+      "pred_dist": [
+        116,
+        48,
+        20
+      ],
+      "true_dist": [
+        162,
+        11,
+        11
+      ]
+    }
+  }
+}

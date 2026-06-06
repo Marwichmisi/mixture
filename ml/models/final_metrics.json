@@ -1,0 +1,142 @@
+{
+  "dataset": {
+    "source": "Stuard IoT Tomato Cultivation (Parma, Italy)",
+    "samples": 918,
+    "period": "2023-06-29 12:00:00 \u2192 2023-09-13 18:00:00",
+    "target": "Agronomic rules: soil_moisture thresholds + stress conditions"
+  },
+  "mode_b": {
+    "accuracy": 0.8315217391304348,
+    "precision_weighted": 0.8593426501035196,
+    "recall_weighted": 0.8315217391304348,
+    "f1_weighted": 0.8292708325569802,
+    "per_class": {
+      "No watering": {
+        "precision": 0.7777777777777778,
+        "recall": 0.9824561403508771,
+        "f1": 0.8682170542635659,
+        "support": 57
+      },
+      "Short watering": {
+        "precision": 0.9571428571428572,
+        "recall": 0.7052631578947368,
+        "f1": 0.8121212121212121,
+        "support": 95
+      },
+      "Long watering": {
+        "precision": 0.7142857142857143,
+        "recall": 0.9375,
+        "f1": 0.8108108108108109,
+        "support": 32
+      }
+    },
+    "confusion_matrix": [
+      [
+        56,
+        1,
+        0
+      ],
+      [
+        16,
+        67,
+        12
+      ],
+      [
+        0,
+        2,
+        30
+      ]
+    ],
+    "pred_dist": [
+      72,
+      70,
+      42
+    ],
+    "true_dist": [
+      57,
+      95,
+      32
+    ],
+    "features": [
+      "air_temp",
+      "humidity",
+      "pressure",
+      "soil_moisture",
+      "soil_moisture_trend",
+      "hour_sin",
+      "hour_cos",
+      "weekday_sin",
+      "weekday_cos"
+    ],
+    "n_features": 9
+  },
+  "mode_a": {
+    "accuracy": 0.9239130434782609,
+    "precision_weighted": 0.934412955465587,
+    "recall_weighted": 0.9239130434782609,
+    "f1_weighted": 0.923709889985282,
+    "per_class": {
+      "No watering": {
+        "precision": 0.8769230769230769,
+        "recall": 1.0,
+        "f1": 0.9344262295081968,
+        "support": 57
+      },
+      "Short watering": {
+        "precision": 1.0,
+        "recall": 0.8526315789473684,
+        "f1": 0.9204545454545454,
+        "support": 95
+      },
+      "Long watering": {
+        "precision": 0.8421052631578947,
+        "recall": 1.0,
+        "f1": 0.9142857142857143,
+        "support": 32
+      }
+    },
+    "confusion_matrix": [
+      [
+        57,
+        0,
+        0
+      ],
+      [
+        8,
+        81,
+        6
+      ],
+      [
+        0,
+        0,
+        32
+      ]
+    ],
+    "pred_dist": [
+      65,
+      81,
+      38
+    ],
+    "true_dist": [
+      57,
+      95,
+      32
+    ],
+    "features": [
+      "air_temp",
+      "humidity",
+      "pressure",
+      "soil_moisture",
+      "soil_moisture_trend",
+      "hour_sin",
+      "hour_cos",
+      "weekday_sin",
+      "weekday_cos",
+      "rain_6h",
+      "wind_speed",
+      "et0",
+      "solar_radiation"
+    ],
+    "n_features": 13
+  }
+}
