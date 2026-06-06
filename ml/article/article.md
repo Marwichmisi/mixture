@@ -86,6 +86,8 @@ Conformément aux spécifications (4 décisions par jour), les données ont ét�
 
 L'agrégation a produit **918 fenêtres** (306 par ligne d'irrigation × 3 lignes), soit en moyenne 11,9 fenêtres par jour.
 
+![Figure 2 : Pipeline de traitement des données et d'entraînement](figures/fig2_pipeline.png)
+
 #### Caractéristiques cycliques temporelles
 
 Pour représenter les cycles circadiens et hebdomadaires sans discontinuité artificielle, l'heure et le jour ont été encodés par transformation trigonométrique :
@@ -125,7 +127,7 @@ Cette approche produit une distribution équilibrée :
 | 1 — Arrosage court | 476 | 51,9 % |
 | 2 — Arrosage long | 159 | 17,3 % |
 
-La figure 4 (voir annexe) illustre la distribution de la cible ainsi que la répartition de l'humidité du sol pour chaque classe.
+![Figure 4 : Distribution de la cible agronomique et de l'humidité du sol par classe](figures/fig4_target_distribution.png)
 
 ### 2.5 Modèle MLP
 
@@ -143,7 +145,9 @@ Le nombre total de paramètres est de :
 - **Mode B :** $9 \times 16 + 16 + 16 \times 8 + 8 + 8 \times 3 + 3 = 144 + 16 + 128 + 8 + 24 + 3 = 323$ poids + biais = 1 292 octets en float32
 - **Mode A :** $13 \times 16 + 16 + 16 \times 8 + 8 + 8 \times 3 + 3 = 208 + 16 + 128 + 8 + 24 + 3 = 387$ paramètres = 1 548 octets en float32
 
-L'architecture est illustrée à la figure 1.
+L'architecture du réseau est illustrée à la figure 1.
+
+![Figure 1 : Architecture du MLP (Dense 16 → 8 → 3)](figures/fig1_architecture.png)
 
 #### Entraînement
 
@@ -192,6 +196,8 @@ Les performances des deux modes sont résumées dans le tableau 1.
 
 Le Mode A (13 caractéristiques) atteint une accuracy de **92,4 %** avec un F1 pondéré de 0,92. Le Mode B (9 caractéristiques) atteint 83,2 % d'accuracy avec un F1 pondéré de 0,83. Dans les deux cas, la classe 2 (arrosage long) obtient un rappel parfait ou quasi-parfait, indiquant que le modèle ne manque aucune situation de sécheresse sévère.
 
+![Figure 3 : Matrices de confusion — Mode B (gauche) et Mode A (droite)](figures/fig3_confusion_matrices.png)
+
 ### 3.2 Comparaison des approches expérimentées
 
 Six approches alternatives ont été explorées avant de retenir la cible agronomique avec le MLP. Le tableau 2 présente une synthèse comparative.
@@ -226,13 +232,15 @@ Les résultats de la quantification sont présentés dans le tableau 3.
 | Scale de sortie | 0,00391 | 0,00391 |
 | Tensor arena requis | 4 Ko | 4 Ko |
 
-La perte de précision due à la quantification est d'environ 2 points de pourcentage par rapport au modèle float32, ce qui est conforme aux observations de la littérature pour ce type de modèle [14]. La figure 5 compare visuellement la taille des modèles à la capacité de stockage de l'ESP32 (4 Mo de flash).
+La perte de précision due à la quantification est d'environ 2 points de pourcentage par rapport au modèle float32, ce qui est conforme aux observations de la littérature pour ce type de modèle [14].
+
+![Figure 5 : Comparaison de la taille des modèles quantifiés vs capacité ESP32](figures/fig5_model_size.png)
 
 ### 3.4 Discussion
 
 **Interprétation des résultats :** Le Modèle A surpasse le Modèle B de 9,2 points de pourcentage, confirmant l'apport informatif des données météorologiques (pluie, vent, ET₀, rayonnement). Cependant, le Mode B reste performant (> 83 %) et constitue une solution viable pour les zones sans connectivité.
 
-**Analyse des erreurs :** La matrice de confusion (figure 3) montre que la majorité des erreurs du Mode B consistent à prédire la classe 1 (arrosage court) alors que la classe réelle est 2 (arrosage long), et inversement. Ces confusions entre les deux classes d'arrosage sont moins critiques que des faux négatifs sur la classe 2 (qui sont inexistants). Le Mode A élimine quasiment toutes les confusions, avec seulement 6 échantillons de la classe 1 classés comme classe 2.
+**Analyse des erreurs :** Les matrices de confusion (figure 3) montrent que la majorité des erreurs du Mode B consistent à prédire la classe 1 (arrosage court) alors que la classe réelle est 2 (arrosage long), et inversement. Ces confusions entre les deux classes d'arrosage sont moins critiques que des faux négatifs sur la classe 2 (qui sont inexistants). Le Mode A élimine quasiment toutes les confusions, avec seulement 6 échantillons de la classe 1 classés comme classe 2.
 
 **Limites de l'étude :**
 
@@ -347,12 +355,4 @@ Les auteurs remercient l'Azienda Sperimentale Stuard pour la mise à disposition
 | et0 (mm) | 0,0 | 0,72 | 0,21 | 0,21 |
 | solar_radiation (W/m²) | 0,0 | 885,0 | 249,1 | 289,7 |
 
-### Annexe C : Liste des figures
 
-| Figure | Description | Fichier |
-|--------|-------------|---------|
-| Figure 1 | Architecture du MLP 16→8→3 | `figures/fig1_architecture.svg` |
-| Figure 2 | Pipeline de traitement des données | `figures/fig2_pipeline.svg` |
-| Figure 3 | Matrices de confusion (Mode B et A) | `figures/fig3_confusion_matrices.svg` |
-| Figure 4 | Distribution de la cible et de l'humidité du sol | `figures/fig4_target_distribution.svg` |
-| Figure 5 | Comparaison de la taille des modèles | `figures/fig5_model_size.svg` |
